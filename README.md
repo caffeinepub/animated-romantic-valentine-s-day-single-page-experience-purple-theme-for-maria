@@ -1,2 +1,3 @@
-# animated-romantic-valentine-s-day-single-page-experience-purple-theme-for-maria
-Exported from Caffeine project: Apply maroon/reddish gradient background and blend 😗😘 emojis into ambient visuals
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

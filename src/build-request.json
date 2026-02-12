@@ -1,0 +1,57 @@
+{
+  "kind": "build_request",
+  "title": "Apply maroon/reddish gradient background and blend 😗😘 emojis into ambient visuals",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Update the full-app background from the current purple theme to a maroon, sexy reddish (not fully red) gradient, with the implementer choosing the exact tones, and apply it consistently wherever the main background gradient is defined (including the app container and any other background surfaces that currently rely on the purple glow variables).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "recent-messages-9",
+          "recent-messages-11"
+        ],
+        "quotes": [
+          "make the background maroon sexy redish not full red",
+          "entire app and gradient and you can pick for me"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The app background renders as a maroon/reddish gradient across the entire experience (not a flat solid color).",
+        "The chosen gradient is clearly maroon/reddish (not bright/full red) and remains readable behind all existing content.",
+        "No section shows the old purple-only gradient as the primary page background after the change."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Blend the 😗 and 😘 emojis into the existing background emoji mix so they appear alongside the other ambient floating emojis and the main message section’s floating background/burst emoji sets.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "recent-messages-12"
+        ],
+        "quotes": [
+          "😗😘 add these emoji also in the back blend with other emijis and now ready"
+        ]
+      },
+      "acceptanceCriteria": [
+        "😗 and 😘 appear intermittently among the ambient floating emojis rendered by the background effect (not replacing all existing emojis).",
+        "😗 and 😘 are included in the Main Message section’s floating background emojis and burst emojis, appearing as part of the existing mix.",
+        "Reduced-motion behavior remains unchanged (ambient effects remain disabled when prefers-reduced-motion is enabled)."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not edit any files under frontend/src/components/ui or any paths listed in frontend.immutablePaths (compose existing UI components instead).",
+    "Keep the backend as a single Motoko actor; no backend changes are required for these styling/emoji updates."
+  ],
+  "nonGoals": [
+    "Adding new sections, new interactive features, or changing any existing message text.",
+    "Introducing third-party animation libraries or backend-driven theming."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

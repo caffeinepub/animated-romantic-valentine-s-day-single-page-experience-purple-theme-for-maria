@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Project for a romantic-themed app/site with customizable background styling.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-update-the-full-app-background-from-the-current-purple-theme-to-a-maroon-sexy-reddish-not-fully-red-gradient-with-the-implementer-choosing-the-exact-tones-and-apply-it-consistently-wherever-the-main-background-gradient-is-defined-including-the-app-container-and-any-other-background-surfaces-that-currently-rely-on-the-purple-glow-variables",
+      "title": "Update the full-app background from the current purple theme to a maroon, sexy reddish (not fully red) gradient, with the implementer choosing the exact tones, and apply it consistently wherever the main background gradient is defined (including the app container and any other background surfaces that currently rely on the purple glow variables).",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-blend-the-and-emojis-into-the-existing-background-emoji-mix-so-they-appear-alongside-the-other-ambient-floating-emojis-and-the-main-message-section-s-floating-background-burst-emoji-sets",
+      "title": "Blend the 😗 and 😘 emojis into the existing background emoji mix so they appear alongside the other ambient floating emojis and the main message section’s floating background/burst emoji sets.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Apply a full-app maroon/sexy-reddish gradient background (color chosen by implementer).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Blend additional 😗😘 emojis into the app background alongside existing background emojis.",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Apply maroon/reddish gradient background and blend 😗😘 emojis into ambient visuals",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

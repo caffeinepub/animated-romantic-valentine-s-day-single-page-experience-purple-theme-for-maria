@@ -1,0 +1,42 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-update-the-full-app-background-from-the-current-purple-theme-to-a-maroon-sexy-reddish-not-fully-red-gradient-with-the-implementer-choosing-the-exact-tones-and-apply-it-consistently-wherever-the-main-background-gradient-is-defined-including-the-app-container-and-any-other-background-surfaces-that-currently-rely-on-the-purple-glow-variables",
+      "featureTitle": "Update the full-app background from the current purple theme to a maroon, sexy reddish (not fully red) gradient, with the implementer choosing the exact tones, and apply it consistently wherever the main background gradient is defined (including the app container and any other background surfaces that currently rely on the purple glow variables).",
+      "files": [
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-blend-the-and-emojis-into-the-existing-background-emoji-mix-so-they-appear-alongside-the-other-ambient-floating-emojis-and-the-main-message-section-s-floating-background-burst-emoji-sets",
+      "featureTitle": "Blend the 😗 and 😘 emojis into the existing background emoji mix so they appear alongside the other ambient floating emojis and the main message section’s floating background/burst emoji sets.",
+      "files": [
+        "frontend/src/components/valentine/AmbientFloating.tsx",
+        "frontend/src/components/valentine/MainMessage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "frontend/src/App.tsx": "Main Valentine's Day app component that orchestrates the opening sequence, all content sections (main message, second section, love button, signature), ambient floating elements, background music, and footer with attribution.",
+  "frontend/src/components/valentine/OpeningSequence.tsx": "Opening animation component that displays a dark purple stage, gradually introduces glowing particles, forms a beating purple heart, and opens to reveal the main content with reduced-motion support.",
+  "frontend/src/components/valentine/MainMessage.tsx": "Main centered message section displaying the three romantic lines with sequential reveal animations, floating background layer mixing purple hearts, red hearts, roses, and kiss emojis (😗😘), gentle heading float, and interactive hover/tap burst effects with red hearts, roses, sparkles, and kiss emojis.",
+  "frontend/src/components/valentine/AmbientFloating.tsx": "Ambient overlay component rendering a rich mix of drifting purple hearts, red hearts (❤️💖💘), roses (🌹🥀), heart-eyes emojis, kiss emojis (😗😘), and twinkling sparkles across the entire page with reduced-motion detection.",
+  "frontend/src/components/valentine/SecondSection.tsx": "Second scrollable section with softer lavender background, floating sparkles, and the care message with animated glowing underline on hover.",
+  "frontend/src/components/valentine/LoveSection.tsx": "Interactive section with the love button that triggers raining mix of purple hearts, red hearts, and roses, pop heart animation randomly choosing from red/purple hearts, and reveals the favorite-person message.",
+  "frontend/src/components/valentine/SignatureSection.tsx": "Final signature section with handwritten font, glowing edges, gentle floating animation, and special glow treatment for \"Qasim\".",
+  "frontend/src/components/valentine/BackgroundMusic.tsx": "Background music controller with mute/unmute toggle, user-gesture-aware playback for mobile compatibility, and placeholder audio source URL.",
+  "frontend/src/index.css": "Complete Valentine's Day styling system with maroon/reddish OKLCH color palette (hue ~10-25), enhanced main heading with text-stroke and layered shadows, Google Fonts integration, all animation keyframes including support for roses and kiss emojis, glow effects, responsive design, and reduced-motion fallbacks.",
+  "frontend/index.html": "HTML entry point with Valentine's Day title and Google Fonts preconnect/stylesheet links for Great Vibes and Shadows Into Light fonts."
+}

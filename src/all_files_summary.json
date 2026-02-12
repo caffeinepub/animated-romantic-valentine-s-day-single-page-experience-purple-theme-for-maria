@@ -1,0 +1,21 @@
+{
+  "backend/main.mo": "Empty Motoko actor definition with no methods.",
+  "feature_evidence.json": "Feature evidence report listing two features, their affected files, components, and test IDs.",
+  "frontend-file-summaries.txt": "Text file mapping frontend paths to short descriptions of each component’s purpose.",
+  "frontend/index.css": "Tailwind base theme defining OKLCH color variables, dark mode overrides, and global background/foreground styling.",
+  "frontend/index.html": "Main HTML entry with root mount point and Google Fonts links.",
+  "frontend/src/App.tsx": "Top-level app controlling the opening sequence, main sections, ambient effects, music, and footer.",
+  "frontend/src/components/valentine/AmbientFloating.tsx": "Renders floating hearts, roses, eyes emojis, kiss emojis, and sparkles with reduced-motion handling.",
+  "frontend/src/components/valentine/BackgroundMusic.tsx": "Background audio controller with mute toggle and user-gesture-aware playback logic.",
+  "frontend/src/components/valentine/LoveSection.tsx": "Interactive love button triggering heart-and-rose rain and a follow-up reveal message.",
+  "frontend/src/components/valentine/MainMessage.tsx": "Main message section with floating emoji background and emoji burst on interaction.",
+  "frontend/src/components/valentine/OpeningSequence.tsx": "Opening animation progressing through multiple phases before revealing content.",
+  "frontend/src/components/valentine/SecondSection.tsx": "Simple section with sparkles and a short care message.",
+  "frontend/src/components/valentine/SignatureSection.tsx": "Final signature display featuring a styled name.",
+  "frontend/src/hooks/useActor.ts": "React hook creating and managing an authenticated or anonymous backend actor with query invalidation.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Provides a React context and provider for managing Internet Identity login, storing identity state, and handling AuthClient initialization and login flow.",
+  "frontend/src/index.css": "Defines global Tailwind layers, theme variables, and custom styles for a maroon-themed Valentine UI with animations and layout effects.",
+  "frontend/src/main.tsx": "Bootstraps the React app, wrapping it with React Query and the InternetIdentityProvider before rendering App.",
+  "frontend/tailwind.config.js": "Configures Tailwind with custom colors mapped to CSS variables, extended theme settings, and plugins for typography, container queries, and animations.",
+  "project_state.json": "Describes project metadata, existing features, and pending requests related to a maroon background gradient and added emoji visuals."
+}

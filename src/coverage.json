@@ -1,0 +1,52 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-12T20:06:47.724Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 2,
+    "implemented": 2,
+    "items": [
+      {
+        "id": "REQ-1",
+        "summary": "Update the full-app background from the current purple theme to a maroon, sexy reddish (not fully red) gradient, with the implementer choosing the exact tones, and apply it consistently wherever the main background gradient is defined (including the app container and any other background surfaces that currently rely on the purple glow variables).",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/index.css"
+        ],
+        "matchedFiles": [
+          "frontend/src/index.css"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Blend the 😗 and 😘 emojis into the existing background emoji mix so they appear alongside the other ambient floating emojis and the main message section’s floating background/burst emoji sets.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/valentine/AmbientFloating.tsx",
+          "frontend/src/components/valentine/MainMessage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/valentine/AmbientFloating.tsx",
+          "frontend/src/components/valentine/MainMessage.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/components/valentine/AmbientFloating.tsx",
+    "frontend/src/components/valentine/MainMessage.tsx",
+    "frontend/src/index.css",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

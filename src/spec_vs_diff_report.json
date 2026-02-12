@@ -1,0 +1,16 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-12T20:06:47.721Z",
+  "summary": "REQ-1 and REQ-2 appear to be implemented: the global/theme glow variables and the main app container gradient were changed to a maroon/reddish OKLCH-based gradient, and 😗/😘 were added to both the ambient floating emoji mix and the Main Message section’s background/burst emoji sets while preserving reduced-motion behavior.",
+  "missing_requirements": [],
+  "hallucinated_features": [],
+  "confidence": 0.74,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/src/components/valentine/AmbientFloating.tsx",
+    "frontend/src/components/valentine/MainMessage.tsx",
+    "frontend/src/index.css",
+    "project_state.json"
+  ]
+}

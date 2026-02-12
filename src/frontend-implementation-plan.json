@@ -1,0 +1,44 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Maroon gradient theme + add 😗😘 to ambient emoji effects",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Replace the existing purple glow/gradient theme with a maroon/reddish (not bright red) gradient and apply consistently across all background surfaces that currently use purple glow/OKLCH values.",
+      "acceptanceCriteria": [
+        "The app background renders as a maroon/reddish gradient across the entire experience (not a flat solid color).",
+        "The chosen gradient is clearly maroon/reddish (not bright/full red) and remains readable behind all existing content.",
+        "No section shows the old purple-only gradient as the primary page background after the change."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update the theme color variables (including --glow-primary/secondary/accent) from purple hues to maroon/reddish hues, and replace remaining hard-coded purple OKLCH background/overlay values (e.g., opening sequence background, section gradient overlays, footer backdrop) so no primary background surface retains the old purple-only look."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Add 😗 and 😘 into the existing ambient emoji pools so they appear in both the global ambient floating layer and the Main Message section’s background and burst emoji mixes, preserving reduced-motion behavior.",
+      "acceptanceCriteria": [
+        "😗 and 😘 appear intermittently among the ambient floating emojis rendered by the background effect (not replacing all existing emojis).",
+        "😗 and 😘 are included in the Main Message section’s floating background emojis and burst emojis, appearing as part of the existing mix.",
+        "Reduced-motion behavior remains unchanged (ambient effects remain disabled when prefers-reduced-motion is enabled)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/valentine/AmbientFloating.tsx",
+          "operation": "modify",
+          "description": "Extend the existing emoji arrays so 😗 and 😘 are included in the random selection mix for ambient floating emojis without removing the current set; keep the prefers-reduced-motion early return unchanged."
+        },
+        {
+          "path": "frontend/src/components/valentine/MainMessage.tsx",
+          "operation": "modify",
+          "description": "Add 😗 and 😘 into both the background emoji list and the burst emoji list so they appear as part of the existing rotation/mix, without altering the interaction timing or other content."
+        }
+      ]
+    }
+  ]
+}

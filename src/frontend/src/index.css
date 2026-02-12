@@ -1,0 +1,714 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Shadows+Into+Light&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.625rem;
+        
+        /* Maroon/Reddish Valentine Theme - Light Mode */
+        --background: 0.95 0.08 15;
+        --foreground: 0.25 0.05 15;
+        --card: 0.98 0.06 15;
+        --card-foreground: 0.25 0.05 15;
+        --popover: 0.98 0.06 15;
+        --popover-foreground: 0.25 0.05 15;
+        --primary: 0.55 0.20 15;
+        --primary-foreground: 0.98 0.02 15;
+        --secondary: 0.75 0.15 10;
+        --secondary-foreground: 0.25 0.05 15;
+        --muted: 0.88 0.10 15;
+        --muted-foreground: 0.50 0.10 15;
+        --accent: 0.65 0.18 20;
+        --accent-foreground: 0.98 0.02 15;
+        --destructive: 0.577 0.245 27.325;
+        --destructive-foreground: 0.985 0 0;
+        --border: 0.85 0.10 15;
+        --input: 0.85 0.10 15;
+        --ring: 0.55 0.20 15;
+        
+        /* Maroon/reddish glow variables */
+        --glow-primary: 0.50 0.22 10;
+        --glow-secondary: 0.60 0.20 15;
+        --glow-accent: 0.65 0.18 25;
+    }
+
+    .dark {
+        --background: 0.20 0.12 15;
+        --foreground: 0.95 0.05 15;
+        --card: 0.25 0.12 15;
+        --card-foreground: 0.95 0.05 15;
+        --popover: 0.25 0.12 15;
+        --popover-foreground: 0.95 0.05 15;
+        --primary: 0.65 0.20 15;
+        --primary-foreground: 0.15 0.10 15;
+        --secondary: 0.35 0.15 10;
+        --secondary-foreground: 0.95 0.05 15;
+        --muted: 0.30 0.12 15;
+        --muted-foreground: 0.65 0.12 15;
+        --accent: 0.45 0.18 20;
+        --accent-foreground: 0.95 0.05 15;
+        --destructive: 0.704 0.191 22.216;
+        --destructive-foreground: 0.95 0.05 15;
+        --border: 0.35 0.15 15;
+        --input: 0.35 0.15 15;
+        --ring: 0.65 0.20 15;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* Valentine App Container */
+.valentine-app {
+  min-height: 100vh;
+  background: linear-gradient(135deg, 
+    oklch(var(--glow-primary)) 0%, 
+    oklch(var(--glow-secondary)) 50%, 
+    oklch(var(--glow-accent)) 100%);
+  background-attachment: fixed;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Opening Sequence */
+.opening-sequence {
+  position: fixed;
+  inset: 0;
+  background: oklch(0.25 0.18 10);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.opening-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: oklch(var(--glow-primary));
+  border-radius: 50%;
+  box-shadow: 0 0 10px oklch(var(--glow-primary)), 0 0 20px oklch(var(--glow-secondary));
+  animation: particleGlow 3s ease-in-out infinite;
+}
+
+.opening-heart {
+  font-size: 8rem;
+  animation: heartForm 1s ease-out forwards;
+  filter: drop-shadow(0 0 30px oklch(var(--glow-primary))) 
+          drop-shadow(0 0 60px oklch(var(--glow-secondary)));
+}
+
+.opening-heart.beating {
+  animation: heartBeat 0.8s ease-in-out 2;
+}
+
+.opening-heart.opening {
+  animation: heartOpen 1.5s ease-out forwards;
+}
+
+/* Main Content */
+.valentine-content {
+  position: relative;
+  z-index: 1;
+  animation: contentFadeIn 1s ease-out;
+}
+
+/* Main Message Section */
+.main-message-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 2rem;
+}
+
+.floating-hearts-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.floating-heart-bg {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.3;
+  animation: floatUpSlow infinite ease-in-out;
+}
+
+.main-message-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 900px;
+  cursor: pointer;
+}
+
+.main-heading {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 700;
+  color: oklch(0.98 0.05 15);
+  text-shadow: 
+    0 0 20px oklch(var(--glow-primary)), 
+    0 0 40px oklch(var(--glow-secondary)),
+    0 0 60px oklch(var(--glow-accent)),
+    2px 2px 4px oklch(0.3 0.18 10),
+    -1px -1px 2px oklch(0.3 0.18 10);
+  margin-bottom: 1.5rem;
+  animation: gentleFloat 4s ease-in-out infinite;
+  -webkit-text-stroke: 0.5px oklch(0.85 0.12 15);
+  paint-order: stroke fill;
+  letter-spacing: 0.02em;
+}
+
+.main-subheading {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 400;
+  color: oklch(0.95 0.08 15);
+  text-shadow: 0 0 15px oklch(var(--glow-primary)), 
+               0 0 30px oklch(var(--glow-secondary));
+  margin-bottom: 1rem;
+}
+
+.main-note {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  color: oklch(0.90 0.10 15);
+  text-shadow: 0 0 10px oklch(var(--glow-primary));
+}
+
+.animate-line-1 {
+  animation: fadeSlideUp 1s ease-out 0.3s both;
+}
+
+.animate-line-2 {
+  animation: fadeSlideUp 1s ease-out 0.8s both;
+}
+
+.animate-line-3 {
+  animation: fadeSlideUp 1s ease-out 1.3s both;
+}
+
+.burst-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.burst-particle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 1.5rem;
+  animation: burstOut 0.8s ease-out forwards;
+  transform-origin: center;
+  transform: translate(-50%, -50%) rotate(var(--angle)) translateY(0);
+}
+
+/* Ambient Floating Elements */
+.ambient-floating {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.ambient-heart,
+.ambient-eyes,
+.ambient-rose,
+.ambient-kiss {
+  position: absolute;
+  font-size: 1.5rem;
+  opacity: 0.6;
+  animation: floatUpDrift infinite linear;
+}
+
+.ambient-eyes {
+  font-size: 1.8rem;
+  opacity: 0.5;
+}
+
+.ambient-rose {
+  font-size: 1.6rem;
+  opacity: 0.55;
+}
+
+.ambient-kiss {
+  font-size: 1.7rem;
+  opacity: 0.55;
+}
+
+.ambient-sparkle {
+  position: absolute;
+  font-size: 1rem;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+/* Second Section */
+.second-section {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 4rem 2rem;
+  background: linear-gradient(180deg, 
+    transparent 0%, 
+    oklch(0.75 0.15 15 / 0.3) 50%, 
+    transparent 100%);
+}
+
+.second-sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.second-sparkle {
+  position: absolute;
+  font-size: 1.5rem;
+  animation: floatUpSlow 6s ease-in-out infinite;
+}
+
+.second-content {
+  max-width: 800px;
+  text-align: center;
+}
+
+.second-message {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: oklch(0.98 0.05 15);
+  text-shadow: 0 0 20px oklch(var(--glow-primary)), 
+               0 0 40px oklch(var(--glow-secondary));
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.second-message::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    oklch(var(--glow-primary)), 
+    oklch(var(--glow-secondary)), 
+    transparent);
+  transform: scaleX(0);
+  transition: transform 0.5s ease;
+  box-shadow: 0 0 15px oklch(var(--glow-primary));
+}
+
+.second-message:hover::after {
+  transform: scaleX(1);
+}
+
+/* Love Section */
+.love-section {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 4rem 2rem;
+}
+
+.heart-rain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.rain-heart {
+  position: absolute;
+  top: -50px;
+  font-size: 2rem;
+  animation: rainFall 4s linear forwards;
+}
+
+.pop-heart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 8rem;
+  animation: popHeart 1s ease-out forwards;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.love-content {
+  text-align: center;
+  z-index: 1;
+}
+
+.love-button {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  padding: 1.5rem 3rem;
+  background: linear-gradient(135deg, 
+    oklch(var(--glow-primary)), 
+    oklch(var(--glow-secondary)));
+  color: oklch(0.98 0.02 15);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 0 30px oklch(var(--glow-primary)), 
+              0 0 60px oklch(var(--glow-secondary));
+  transition: all 0.3s ease;
+  animation: gentleFloat 3s ease-in-out infinite;
+}
+
+.love-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px oklch(var(--glow-primary)), 
+              0 0 80px oklch(var(--glow-secondary));
+}
+
+.love-button:active {
+  transform: scale(0.98);
+}
+
+.love-reveal {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: oklch(0.98 0.05 15);
+  text-shadow: 0 0 20px oklch(var(--glow-primary)), 
+               0 0 40px oklch(var(--glow-secondary));
+  animation: fadeSlideUp 1s ease-out;
+}
+
+/* Signature Section */
+.signature-section {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 4rem 2rem;
+  background: linear-gradient(180deg, 
+    transparent 0%, 
+    oklch(0.30 0.15 10 / 0.4) 100%);
+}
+
+.signature-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, 
+    oklch(var(--glow-primary) / 0.2) 0%, 
+    transparent 70%);
+  pointer-events: none;
+}
+
+.signature-content {
+  text-align: center;
+  animation: gentleFloat 5s ease-in-out infinite;
+}
+
+.signature-text {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: oklch(0.95 0.08 15);
+  text-shadow: 0 0 15px oklch(var(--glow-primary));
+  line-height: 1.8;
+}
+
+.signature-name {
+  display: inline-block;
+  color: oklch(0.98 0.05 15);
+  text-shadow: 0 0 25px oklch(var(--glow-primary)), 
+               0 0 50px oklch(var(--glow-secondary)),
+               0 0 75px oklch(var(--glow-accent));
+  font-size: 1.2em;
+  animation: nameGlow 2s ease-in-out infinite;
+}
+
+/* Background Music Toggle */
+.background-music {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 100;
+}
+
+.music-toggle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, 
+    oklch(var(--glow-primary)), 
+    oklch(var(--glow-secondary)));
+  border: none;
+  color: oklch(0.98 0.02 15);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px oklch(var(--glow-primary)), 
+              0 0 40px oklch(var(--glow-secondary));
+  transition: all 0.3s ease;
+}
+
+.music-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px oklch(var(--glow-primary)), 
+              0 0 60px oklch(var(--glow-secondary));
+}
+
+.music-toggle:active {
+  transform: scale(0.95);
+}
+
+/* Footer */
+.valentine-footer {
+  padding: 2rem;
+  text-align: center;
+  background: oklch(0.25 0.15 10 / 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.footer-text {
+  font-size: 0.9rem;
+  color: oklch(0.85 0.10 15);
+  margin: 0;
+}
+
+.footer-link {
+  color: oklch(var(--glow-primary));
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+  color: oklch(var(--glow-secondary));
+  text-shadow: 0 0 10px oklch(var(--glow-primary));
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes particleGlow {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.5); }
+}
+
+@keyframes heartForm {
+  from { 
+    opacity: 0; 
+    transform: scale(0); 
+  }
+  to { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+}
+
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.2); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.15); }
+}
+
+@keyframes heartOpen {
+  0% { 
+    transform: scale(1); 
+    opacity: 1; 
+  }
+  50% { 
+    transform: scale(1.3); 
+  }
+  100% { 
+    transform: scale(5); 
+    opacity: 0; 
+  }
+}
+
+@keyframes contentFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes floatUpSlow {
+  from {
+    transform: translateY(0);
+    opacity: 0.3;
+  }
+  to {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+@keyframes floatUpDrift {
+  from {
+    transform: translateY(110vh) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  to {
+    transform: translateY(-10vh) translateX(50px);
+    opacity: 0;
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes burstOut {
+  from {
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-100px);
+    opacity: 0;
+  }
+}
+
+@keyframes rainFall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes popHeart {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes nameGlow {
+  0%, 100% {
+    text-shadow: 0 0 25px oklch(var(--glow-primary)), 
+                 0 0 50px oklch(var(--glow-secondary)),
+                 0 0 75px oklch(var(--glow-accent));
+  }
+  50% {
+    text-shadow: 0 0 35px oklch(var(--glow-primary)), 
+                 0 0 70px oklch(var(--glow-secondary)),
+                 0 0 100px oklch(var(--glow-accent));
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .ambient-floating,
+  .floating-hearts-bg,
+  .second-sparkles {
+    display: none;
+  }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .opening-heart {
+    font-size: 5rem;
+  }
+
+  .main-message-section,
+  .second-section,
+  .love-section,
+  .signature-section {
+    padding: 2rem 1rem;
+  }
+
+  .main-heading {
+    -webkit-text-stroke: 0.3px oklch(0.85 0.12 15);
+  }
+
+  .love-button {
+    padding: 1rem 2rem;
+  }
+
+  .music-toggle {
+    width: 50px;
+    height: 50px;
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .burst-particle {
+    font-size: 1rem;
+  }
+
+  .pop-heart {
+    font-size: 5rem;
+  }
+}
